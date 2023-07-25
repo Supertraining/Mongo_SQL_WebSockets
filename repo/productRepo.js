@@ -1,5 +1,6 @@
 import DAOFactory from "../DAOs/DAOFactory.js";
 import Producto from "../modelos/producto.js";
+import logger from '../logger/logger.js';
 
 export default class ProductRepo {
 	dao

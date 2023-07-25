@@ -1,7 +1,6 @@
 import { faker } from '@faker-js/faker';
 faker.locale = 'es';
-import logger from '../Logger/Logger.js';
-
+import logger from '../logger/logger.js';
 export default class MemoryContainer {
     constructor() {
         this.data = [];

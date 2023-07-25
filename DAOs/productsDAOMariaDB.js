@@ -2,7 +2,7 @@ import knex from 'knex';
 import { faker } from '@faker-js/faker';
 faker.locale = 'es';
 import { productoDTO } from '../DTOs/productoDTO.js';
-import logger from '../Logger/Logger.js';
+import logger from '../logger/logger.js';
 
 let instance = null;
 

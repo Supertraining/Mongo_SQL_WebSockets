@@ -1,10 +1,3 @@
-// export function mensajeDTO(mensaje) {
-//   if (mensaje.length > 0) {
-//     return mensaje.map(p => p)
-//   }
-//   return mensaje
-// }
-
 class MensajeDTO {
   constructor(obj) {
     this.nombre = obj.author.nombre

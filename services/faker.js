@@ -1,4 +1,4 @@
-import logger from "../Logger/Logger.js";
+import logger from '../logger/logger.js';
 import MemoryContainer from "../DAOs/memoryContainer.js"
 const memoryContainer = new MemoryContainer();
 

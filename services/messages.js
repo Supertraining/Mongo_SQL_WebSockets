@@ -1,4 +1,4 @@
-import logger from '../Logger/Logger.js';
+import logger from '../logger/logger.js';
 import { normalize, schema } from 'normalizr';
 import MessageRepo from '../repo/messageRepo.js';
 

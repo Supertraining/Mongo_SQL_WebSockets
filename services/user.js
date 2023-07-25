@@ -1,4 +1,4 @@
-import logger from "../Logger/Logger.js";
+import logger from '../logger/logger.js';
 import * as user from '../models/user.js';
 import bcrypt from 'bcrypt';
 import UsersDAO from "../DAOs/userDAO.js";

@@ -9,7 +9,7 @@ import fakerRouter from './routes/faker.js'
 import infoRouter from './routes/info.js';
 import { sockets } from './routes/user_Message_Products.js';
 import cluster from 'cluster';
-import logger from './Logger/Logger.js';
+import logger from './logger/logger.js';
 import * as config from './config/config.js';
 import noRouteRouter from './routes/non-ExistentRoutes.js';
 import cors from 'cors';

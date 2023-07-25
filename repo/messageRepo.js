@@ -1,5 +1,5 @@
 import DAOFactory from "../DAOs/DAOFactory.js";
-import logger from "../Logger/Logger.js";
+import logger from '../logger/logger.js';
 import * as message from '../models/mensaje.js';
 import Mensaje from "../modelos/mensaje.js";
 

@@ -1,4 +1,4 @@
-import logger from '../Logger/Logger.js';
+import logger from '../logger/logger.js';
 import usuarioDTO from '../DTOs/usuarioDTO.js';
 import * as config from '../config/config.js';
 import { dbConnection } from '../utils/mongoDbConnection.js';

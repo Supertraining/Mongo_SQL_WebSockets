@@ -1,4 +1,4 @@
-import logger from '../Logger/Logger.js';
+import logger from '../logger/logger.js';
 import { mensajeDTO } from '../DTOs/mensajeDTO.js';
 
 let instance = null;

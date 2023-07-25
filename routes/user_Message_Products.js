@@ -4,7 +4,7 @@ import MessagesController from '../controllers/messages.js';
 import express from 'express';
 import passport from 'passport';
 import { passportLogin, passportRegister, requireAuthentication } from './middlewares/auth.js';
-import logger from '../Logger/Logger.js';
+import logger from '../logger/logger.js';
 
 
 const userController = new UserController();

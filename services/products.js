@@ -1,5 +1,5 @@
 import ProductRepo from '../repo/productRepo.js';
-import logger from '../Logger/Logger.js';
+import logger from '../logger/logger.js';
 
 export default class ProductServices {
     constructor() {
