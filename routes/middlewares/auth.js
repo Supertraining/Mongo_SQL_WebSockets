@@ -1,8 +1,8 @@
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
-import { routeLogger } from '../../Logger/Logger.js';
+import { routeLogger } from '../../logger/logger.js';
 import UserService from '../../services/user.js'
-import logger from '../../Logger/Logger.js';
+import logger from '../../logger/logger.js';
 
 let userService = new UserService();
 

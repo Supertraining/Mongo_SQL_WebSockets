@@ -1,5 +1,5 @@
 import io from '../server.js';
-import logger, { routeLogger } from '../Logger/Logger.js';
+import logger, { routeLogger } from '../logger/logger.js';
 import MessageService from '../services/messages.js';
 
 export default class MessagesController {

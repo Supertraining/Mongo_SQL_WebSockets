@@ -1,5 +1,5 @@
 import ProductServices from '../services/products.js';
-import logger from '../Logger/Logger.js';
+import logger from '../logger/logger.js';
 import io from '../server.js';
 
 export default class ProductsControllers {

@@ -1,4 +1,4 @@
-import logger, {routeLogger} from "../Logger/Logger.js";
+import logger, {routeLogger} from "../logger/logger.js";
 import { saveFakerProducts } from "../services/faker.js";
 
 

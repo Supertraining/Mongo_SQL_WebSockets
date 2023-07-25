@@ -1,4 +1,4 @@
-import { routeLogger } from "../Logger/Logger.js";
+import { routeLogger } from "../logger/logger.js";
 
 export const nonExistentRoutes = async (req, res) => {
     try {
