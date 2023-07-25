@@ -55,7 +55,7 @@ if (cluster.isPrimary && config.modo === 'CLUSTER') {
 		cluster.fork();
 	});
 } else {
-	const PORT = config.puerto;
+	const PORT = process.argv[2] || config.puerto;
 	httpServer.listen(PORT, () => {
 		logger.info(`Server on at ${PORT} - PID: ${process.pid} - ${new Date().toLocaleString()}`);
 	});

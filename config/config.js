@@ -38,7 +38,7 @@ export const minimistConfig = {
 		m: 'modo',
 	},
 	default: {
-		puerto: 8080,
+		puerto: process.env.PORT,
 		modo: 'FORK',
 	},
 };
