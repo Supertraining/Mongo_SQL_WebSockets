@@ -44,7 +44,7 @@ function getProductById() {
 }
 
 socket.on('productos', (data) => {
-	console.log(data)
+
 	if (data.length === 0) {
 		document.getElementById('tabla').innerHTML = `
 						<h3 class="m-2 text-white">no se encontraron datos</h3>
