@@ -6,23 +6,30 @@ function addProduct() {
 		precio: document.getElementById('precio').value,
 		imagen: document.getElementById('imagen').value,
 	};
-	
+
 	socket.emit('new-product', producto);
 }
 function deleteProduct() {
-	
+
 	const id = document.getElementById('idDelete').value;
 
 	socket.emit('deleteProduct', id);
-	
+
 }
 
 function UpdateProduct() {
+
+	const id = document.getElementById('idUpdate').value
+	const nombre = document.getElementById('nombre').value
+	const precio = document.getElementById('precio').value
+	const imagen = document.getElementById('imagen').value
+
+	
 	const updatedProduct = {
 		id: document.getElementById('idUpdate').value,
-		nombre: document.getElementById('nombre').value,
-		precio: document.getElementById('precio').value,
-		foto: document.getElementById('imagen').value,
+		...(nombre.length > 0 && { nombre }),
+		...(precio.length > 0 && { precio }),
+		...(imagen.length > 0 && { imagen }), 
 	};
 	socket.emit('updatedProduct', updatedProduct);
 }
@@ -118,7 +125,7 @@ socket.on('normalizedMessages', async (data) => {
 		author: authorSchema,
 	});
 	const postSchema = await new normalizr.schema.Entity('post', {
-		mensajes: [messageSchema],
+		mensajes: [ messageSchema ],
 	});
 	const mensajesDenormalizados = await normalizr.denormalize(data.result, postSchema, data.entities);
 

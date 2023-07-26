@@ -15,9 +15,10 @@ export default class ProductsDAOMariaDB {
 
   async save(product) {
     try {
-    
+
       const productId = await this.knex(`${this.tabla}`).insert(product);
-      return productId[0];
+      return productId[ 0 ];
+
     } catch (err) {
       logger.error(err);
     }
@@ -26,7 +27,7 @@ export default class ProductsDAOMariaDB {
   async getAll() {
     try {
       let data = await this.knex(`${this.tabla}`).select('*');
-      
+
       return productoDTO(data);
     } catch (err) {
       logger.error(err);
@@ -52,11 +53,13 @@ export default class ProductsDAOMariaDB {
 
   async update(obj) {
     try {
+      console.log(obj)
       const response = await this.knex(`${this.tabla}`)
         .where('id', '=', obj.id)
         .update({ nombre: obj.nombre, precio: obj.precio, imagen: obj.imagen });
       const updated = await this.getById(obj.id);
       return productoDTO(updated);
+
     } catch (err) {
       logger.error(err);
     }
