@@ -15,11 +15,7 @@ class MensajeDTO {
             author:
             {
                 id: this.id,
-                nombre: this.nombre,
-                apellido: this.apellido,
-                edad: this.edad,
                 alias: this.alias,
-                avatar: this.avatar
             },
             text: this.text
         }

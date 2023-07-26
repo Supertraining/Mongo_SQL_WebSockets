@@ -6,7 +6,7 @@ function addProduct() {
 		precio: document.getElementById('precio').value,
 		imagen: document.getElementById('imagen').value,
 	};
-	console.log(document.getElementById('nombre').value)
+	
 	socket.emit('new-product', producto);
 }
 function deleteProduct() {
@@ -14,6 +14,7 @@ function deleteProduct() {
 	const id = document.getElementById('idDelete').value;
 
 	socket.emit('deleteProduct', id);
+	
 }
 
 function UpdateProduct() {
@@ -102,15 +103,12 @@ function addMessage() {
 	const message = {
 		author: {
 			id: document.getElementById('email').value,
-			nombre: document.getElementById('name').value,
-			apellido: document.getElementById('apellido').value,
-			edad: document.getElementById('edad').value,
 			alias: document.getElementById('alias').value,
-			avatar: document.getElementById('avatar').value,
 		},
 		text: document.getElementById('text').value,
 	};
 	socket.emit('new-message', message);
+	return false
 }
 
 socket.on('normalizedMessages', async (data) => {

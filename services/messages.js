@@ -23,7 +23,7 @@ export default class UserAndMessagesService {
         try {
 
             data = await this.messageService.getAll()
-
+            
             const stringifyData = JSON.stringify(data);
             const parsedData = JSON.parse(stringifyData);
 
