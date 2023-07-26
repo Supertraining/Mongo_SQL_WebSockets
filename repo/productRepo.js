@@ -12,6 +12,7 @@ export default class ProductRepo {
 
 	async save(product) {
 		try {
+			
 			const productId = await this.prod.save(product);
 			return productId;
 		} catch (err) {

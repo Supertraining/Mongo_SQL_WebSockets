@@ -27,7 +27,7 @@ export const options = {
 	connection: {
 		host: process.env.SQL_HOST,
 		user: process.env.SQL_USERNAME,
-		password: '',
+		password: process.env.SQL_PASSWORD,
 		database: process.env.SQL_DATABASE,
 	},
 };
