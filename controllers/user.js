@@ -7,17 +7,17 @@ export default class UserController {
     }
 
     save = async (data) => {
-       
+
         try {
             const newUser = await this.userService.save(data)
             return newUser;
         } catch (error) {
-            
+
             logger.error(error)
         }
     }
 
-   getById = async (req, res) => {
+    getById = async (req, res) => {
         try {
             let usuario = await this.userService.getById(req.user.username);
             res.render('inicio', {
