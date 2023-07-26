@@ -6,8 +6,11 @@ function addProduct() {
 		precio: document.getElementById('precio').value,
 		imagen: document.getElementById('imagen').value,
 	};
+	const checkFilledValues = Object.values(producto).every(value => value.length > 0);
+	
+	if (!checkFilledValues) alert('Todos los campos son obligatorios')
+		socket.emit('new-product', producto);
 
-	socket.emit('new-product', producto);
 }
 function deleteProduct() {
 
@@ -24,12 +27,12 @@ function UpdateProduct() {
 	const precio = document.getElementById('precio').value
 	const imagen = document.getElementById('imagen').value
 
-	
+
 	const updatedProduct = {
 		id: document.getElementById('idUpdate').value,
 		...(nombre.length > 0 && { nombre }),
 		...(precio.length > 0 && { precio }),
-		...(imagen.length > 0 && { imagen }), 
+		...(imagen.length > 0 && { imagen }),
 	};
 	socket.emit('updatedProduct', updatedProduct);
 }
@@ -41,13 +44,13 @@ function getProductById() {
 }
 
 socket.on('productos', (data) => {
+	console.log(data)
 	if (data.length === 0) {
 		document.getElementById('tabla').innerHTML = `
 						<h3 class="m-2 text-white">no se encontraron datos</h3>
 					`;
-	} else {
-		const html = data
-			.map((el) => {
+	} else if(Array.isArray(data)) {
+		const html = data?.map((el) => {
 				return `    <tr>
                             <td>${el.nombre}</td>
                             <td>${el.precio}</td>
