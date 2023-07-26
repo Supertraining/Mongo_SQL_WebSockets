@@ -126,12 +126,14 @@ socket.on('normalizedMessages', async (data) => {
 		100 -
 		(JSON.stringify(data).length * 100) / JSON.stringify(mensajesDenormalizados).length
 	).toFixed(1);
-	document.getElementById(
-		'compresion'
-	).innerHTML = `<h2 class="text-center">Compresión : ${compresion}%</h2>`;
+	if (compresion > 0) {
+		document.getElementById(
+			'compresion'
+		).innerHTML = `<h2 class="text-center">Compresión : ${compresion}%</h2>`;
+	}
 	const html = mensajesDenormalizados.mensajes.map((msj) => {
 		return `<div class="m-1 shadow border border-light rounded p-2">
-                    <strong style="color:blue;">${msj.author.id}</strong>
+                    <strong style="color:blue;">${msj.author.id}</strong><i style="font-weight:bold"> alias</i><strong style="color:red;"> ${msj.author.alias}</>
                     <p style="color:brown;" class="m-0">${new Date().toLocaleString()}</p>
                     <i style="color:green;">${msj.text}</i>
                 </div>`;
