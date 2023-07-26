@@ -58,7 +58,7 @@ export default class ProductsControllers {
             res?.json(producto);
 
         } catch (error) {
-            console.log(error);
+          
             logger.error(error);
         }
     };

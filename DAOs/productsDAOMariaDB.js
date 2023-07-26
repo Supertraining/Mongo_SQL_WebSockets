@@ -15,7 +15,7 @@ export default class ProductsDAOMariaDB {
 
   async save(product) {
     try {
-      console.log(product);
+    
       const productId = await this.knex(`${this.tabla}`).insert(product);
       return productId[0];
     } catch (err) {
@@ -26,7 +26,7 @@ export default class ProductsDAOMariaDB {
   async getAll() {
     try {
       let data = await this.knex(`${this.tabla}`).select('*');
-      console.log(data);
+      
       return productoDTO(data);
     } catch (err) {
       logger.error(err);
