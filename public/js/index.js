@@ -77,7 +77,7 @@ socket.on('selectedProd', (data) => {
 				return `    <tr>
                             <td>${el.nombre}</td>
                             <td>${el.precio}</td>
-                            <td><img src=${el.foto}></td>
+                            <td><img style="height: 80px; width: 80px;" src=${el.imagen}></td>
                             <td>${el.id}</td>
                             </tr><br>
                         `;
