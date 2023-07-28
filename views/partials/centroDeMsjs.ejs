@@ -1,35 +1,24 @@
-<div class="row border border-dark rounded shadow bg-primary">
+<div class="row border border-dark rounded shadow bg-primary justify-content-center align-items-center">
+
     <div class="bg-light w-100 text-primary rounded" id="compresion"></div>
-    <form class="bg-dark rounded d-flex w-100 form-group"
-        onsubmit="return addMessage()">
-        <div class="p-3 my-3 w-50 text-center d-flex flex-column align-items-center justify-content-center">
-            <input class="w-50 form-control"
-                type="email"
-                name="email"
-                id="email"
-                placeholder="E-mail"><br>
-            <input class="w-50 form-control"
-                type="text"
-                name="alias"
-                id="alias"
-                placeholder="Alias"><br>
-            <textarea class="w-50 form-control"
-                rows="5"
-                maxlength="200"
-                id="text"
+
+    <form class="bg-dark rounded col-10 d-flex flex-wrap justify-content-center       form-group" onsubmit="return addMessage()">
+
+        <div
+            class="p-3 my-3 col-10 col-md-5 col-lg-4 text-center d-flex flex-column align-items-center justify-content-center">
+            <input class="form-control" type="email" name="email" id="email" placeholder="E-mail"><br>
+            <input class="form-control" type="text" name="alias" id="alias" placeholder="Alias"><br>
+            <textarea class="form-control" rows="5" maxlength="200" id="text"
                 placeholder="Tu mensaje..."></textarea><br>
-            <input type="submit"
-                value="Enviar Msj"
-                class="btn btn-primary w-50"
-                id="btnMssg">
+            <input type="submit" value="Enviar Msj" class="btn btn-primary" id="btnMssg">
         </div>
 
-        <form />
-        <div class="w-50 overflow-auto m-5 p-3 rounded bg-light"
-        id="messages"
-        style="height: 500px;">
+
+        <div class="col-10 col-md-10 col-lg-6 overflow-auto m-5 p-3 rounded bg-light" id="messages"
+            style="height: 500px;">
         </div>
 
+    </form>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.2/dist/normalizr.browser.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.2/dist/normalizr.browser.min.js"></script>
 <script src="./js/index.js"></script>

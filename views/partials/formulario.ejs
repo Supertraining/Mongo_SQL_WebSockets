@@ -1,5 +1,5 @@
-<div class="row align-items-center flex-column">
-    <form class="w-50 border border-dark rounded p-3 my-5 bg-success shadow" onsubmit="return addProduct()">
+<div class="row align-items-center flex-column flex-wrap">
+    <form class="col-12 col-md-10 col-lg-8 border border-dark rounded p-3 my-5 bg-success shadow" onsubmit="return addProduct()">
         <h5 class="text-center"><b>Ingrese o actualice un producto.</b></h5>
         <div class="form-group">
             <label for="nombre"><b>Nombre</b></label>
@@ -18,8 +18,8 @@
 
         <input type="submit" id="btnProd" value="Ingresar" class="m-1 btn btn-dark"><br>
     </form>
-    <div class="d-flex">
-        <form class="w-50 border border-dark rounded p-3 m-3 text-center bg-danger shadow"
+    <div class="d-flex flex-wrap justify-content-center">
+        <form class="col-12 col-sm-5 col-lg-3 border border-dark rounded p-3 m-3 text-center bg-danger shadow"
             onsubmit="return deleteProduct()">
             <div class="form-group">
                 <label for="idDelete"><b>Eliminar producto ID:</b></label>
@@ -27,7 +27,7 @@
             </div>
             <input type="submit" id="btnDelete" value="Eliminar" class="m-1"><br>
         </form>
-        <form class="w-50 border border-dark rounded p-3 m-3 text-center bg-warning shadow"
+        <form class="col-12 col-sm-5 col-lg-3 border border-dark rounded p-3 m-3 text-center bg-warning shadow"
             onsubmit="return UpdateProduct()">
 
             <small>
@@ -40,7 +40,7 @@
             </div>
             <input type="submit" id="btnUpdate" value="Actualizar" class="m-1"><br>
         </form>
-        <form class="w-50 border border-dark rounded p-3 m-3 text-center bg-secondary shadow"
+        <form class="col-12 col-sm-5 col-lg-3 border border-dark rounded p-3 m-3 text-center bg-secondary shadow"
             onsubmit="return getProductById()">
             <div class="form-group">
                 <label for="idGetById"><b>Seleccionar producto ID:</b></label>
