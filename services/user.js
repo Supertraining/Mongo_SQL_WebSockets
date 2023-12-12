@@ -1,21 +1,20 @@
 import logger from '../logger/logger.js';
-import * as user from '../models/user.js';
 import bcrypt from 'bcrypt';
-import UsersDAO from "../DAOs/userDAO.js";
 
 
 export default class UserService {
 
-    constructor() {
-        this.userService = new UsersDAO();
+    constructor(UsersDAO) {
+        
+        this.userDAO = UsersDAO;
     }
 
      async save(data)  {
          try {
            
              const usuario = { username: data.username, password: bcrypt.hashSync(data.password, bcrypt.genSaltSync(10), null) };
-             
-             let newUser = await this.userService.save(usuario, user.model)
+                
+             let newUser = await this.userDAO.save(usuario)
               
             return newUser;
 
@@ -27,7 +26,7 @@ export default class UserService {
     async getAll() {
         let data = null;
         try {
-            data = await this.userService.getAll(user.model)
+            data = await this.userDAO.getAll()
             return data;
         } catch (error) {
             logger.error(error)
@@ -37,7 +36,7 @@ export default class UserService {
     async getById(id) {
         let data = null;
         try {
-            data = await this.userService.getById(id, user.model);
+            data = await this.userDAO.getById(id);
             return data;
         } catch (err) {
             logger.error(err)
@@ -45,7 +44,7 @@ export default class UserService {
     }
     async delete(id) {
         try {
-            let deleted = await this.userService.delete(id, user.model);
+            let deleted = await this.userDAO.delete(id);
             return deleted;
         } catch {
             logger.error(err)
@@ -53,7 +52,7 @@ export default class UserService {
     }
     async update(obj) {
         try {
-            let updated = await this.userService.update(obj, user.model);
+            let updated = await this.userDAO.update(obj);
             return updated;
         } catch {
             logger.error(err)

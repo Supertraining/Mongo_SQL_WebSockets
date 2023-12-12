@@ -45,7 +45,7 @@ app.use(noRouteRouter)
 io.on('connection', sockets);
 
 if (cluster.isPrimary && config.modo === 'CLUSTER') {
-	
+	console.log('ENTRO:',config.modo)
 	logger.info(`Primary Process PID ${process.pid}`);
 	for (let i = 0; i < config.numCPUs; i++) {
 		cluster.fork();
@@ -55,7 +55,7 @@ if (cluster.isPrimary && config.modo === 'CLUSTER') {
 		cluster.fork();
 	});
 } else {
-	const PORT = process.argv[2] || config.puerto;
+	const PORT =  config.puerto || process.env.PORT 
 	httpServer.listen(PORT, () => {
 		logger.info(`Server on at ${PORT} - PID: ${process.pid} - ${new Date().toLocaleString()}`);
 	});

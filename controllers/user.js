@@ -1,9 +1,10 @@
-import UserService from '../services/user.js'
 import logger, { routeLogger } from '../logger/logger.js';
 
 export default class UserController {
-    constructor() {
-        this.userService = new UserService();
+    constructor(UserService) {
+
+        this.userService = UserService;
+        
     }
 
     save = async (data) => {

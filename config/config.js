@@ -9,19 +9,19 @@ export const numCPUs = os.cpus().length;
 const advancedOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
 export const sessionConfig = {
-    store: mongoStore.create({
-        mongoUrl: process.env.MONGODB_URL,
-        mongoOptions: advancedOptions,
-        collectionName: 'sessions',
-        ttl: 600,
-    }),
-    secret: process.env.SECRET,
-    resave: false,
-    saveUninitialized: false,
+	store: mongoStore.create({
+		mongoUrl: process.env.MONGODB_URL,
+		mongoOptions: advancedOptions,
+		collectionName: 'sessions',
+		ttl: 600,
+	}),
+	secret: process.env.SECRET,
+	resave: false,
+	saveUninitialized: false,
 }
 
 export const mongoURL = process.env.MONGODB_URL;
-	
+
 export const options = {
 	client: 'mysql',
 	connection: {
@@ -33,15 +33,11 @@ export const options = {
 };
 
 export const minimistConfig = {
-	alias: {
-		p: 'puerto',
-		m: 'modo',
-	},
 	default: {
 		puerto: process.env.PORT,
-		modo: 'FORK',
+		modo: process.env.MODE,
 	},
 };
+export const { puerto, modo } = parseArgs(process.argv.slice(2), minimistConfig);
 
-export const { puerto } = parseArgs(process.argv.slice(2), minimistConfig);
-export const { modo } = parseArgs(process.argv.slice(3), minimistConfig);
+

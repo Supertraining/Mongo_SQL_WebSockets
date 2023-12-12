@@ -7,7 +7,9 @@ import { dbConnection } from '../utils/mongoDbConnection.js';
 let instance = null;
 
 class UsersDAO {
-	constructor() {
+	constructor(model) {
+
+		this.model = model
 
 		if (!instance) {
 			instance = this;
@@ -17,10 +19,10 @@ class UsersDAO {
 		logger.info('Se ha utilizado una instancia ya creada de UsersDAO');
 		return instance;
 	}
-	save = async (data, model) => {
+	async save(data) {
 		try {
-
-			const dataDb = await model.insertMany(data);
+			
+			const dataDb = await this.model.insertMany(data);
 
 			return usuarioDTO(dataDb)
 
@@ -29,10 +31,10 @@ class UsersDAO {
 		}
 	}
 
-	async getAll(model) {
+	async getAll() {
 		let data = null;
 		try {
-			data = await model.find({}, { _id: 0, __v: 0 });
+			data = await this.model.find({}, { _id: 0, __v: 0 });
 			return usuarioDTO(data)
 
 		} catch (err) {
@@ -41,28 +43,28 @@ class UsersDAO {
 		}
 	}
 
-	async getById(id, model) {
+	async getById(id) {
 		let data = null;
 		try {
-			data = await model.find({ username: id });
+			data = await this.model.find({ username: id });
 			return usuarioDTO(data)
 		} catch (err) {
 			logger.error(err)
 		}
 	}
 
-	async delete(id, model) {
+	async delete(id) {
 		try {
-			const deleted = await model.deleteOne(id);
+			const deleted = await this.model.deleteOne(id);
 			return usuarioDTO(deleted)
 		} catch {
 			logger.error(err)
 		}
 	}
 
-	async update(obj, model) {
+	async update(obj) {
 		try {
-			const updated = await model.updateOne(obj);
+			const updated = await this.model.updateOne(obj);
 			return usuarioDTO(updated)
 		} catch {
 			logger.error(err)

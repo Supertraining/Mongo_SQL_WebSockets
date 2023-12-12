@@ -3,9 +3,7 @@ import { Strategy as LocalStrategy } from 'passport-local';
 import { routeLogger } from '../../logger/logger.js';
 import UserService from '../../services/user.js'
 import logger from '../../logger/logger.js';
-
-let userService = new UserService();
-
+import {userService} from '../user_Message_Products.js'
 
 
     passport.serializeUser(async (user, done) => {

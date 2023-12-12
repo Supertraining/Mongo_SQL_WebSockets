@@ -5,9 +5,16 @@ import express from 'express';
 import passport from 'passport';
 import { passportLogin, passportRegister, requireAuthentication } from './middlewares/auth.js';
 import logger from '../logger/logger.js';
+import UsersDAO from '../DAOs/userDAO.js';
+import UserService from '../services/user.js';
 
+import * as user from '../models/user.js';
 
-const userController = new UserController();
+const userModel = user.model
+const usersDAO = new UsersDAO(userModel);
+export const userService = new UserService(usersDAO);
+const userController = new UserController(userService);
+
 const messageController = new MessagesController();
 const productsController = new ProductsControllers();
 const router = express.Router();
