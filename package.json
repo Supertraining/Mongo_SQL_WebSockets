@@ -6,7 +6,7 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha server.test.js",
-    "start": "node server.js"
+    "start": " node server.js --modo CLUSTER"
   },
   "author": "",
   "license": "ISC",

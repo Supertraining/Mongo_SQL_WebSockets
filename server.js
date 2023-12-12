@@ -45,7 +45,6 @@ app.use(noRouteRouter)
 io.on('connection', sockets);
 
 if (cluster.isPrimary && config.modo === 'CLUSTER') {
-	console.log('ENTRO:',config.modo)
 	logger.info(`Primary Process PID ${process.pid}`);
 	for (let i = 0; i < config.numCPUs; i++) {
 		cluster.fork();
